@@ -17,10 +17,13 @@ class MapsScraper:
         with sync_playwright() as p:
             context = p.chromium.launch_persistent_context(
                 self.profile_path, 
-                headless=False, 
+                headless=True,
+                args=["--disable-blink-features=AutomationControlled"],
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
                 viewport=BROWSER_CONFIG["VIEWPORT"]
             )
             page = context.pages[0]
+            page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
             
             # 1. Navigate & Initial Load
             page.goto(self.url, wait_until="domcontentloaded")

@@ -4,6 +4,9 @@ from urllib.parse import urlparse
 from scraper import MapsScraper
 from analyzer import ReviewAnalyzer
 
+if sys.stdout.encoding.lower() != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8')
+
 def is_google_maps_responsive(url: str) -> bool:
     """Sends a HEAD request to check for 302 Found (Redirects) or 200 OK."""
     try:
