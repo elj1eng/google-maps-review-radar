@@ -10,7 +10,8 @@ CSS_SELECTORS = {
     "RATING_VALUE": "fontDisplayLarge",
     "TOTAL_REVIEWS": "fontBodySmall",
     "BUSINESS_TITLE": "h1",
-    "REVIEWS_TAB": "div.Gpq6kf.NlVald"
+    "REVIEWS_TAB": "div.Gpq6kf.NlVald",
+    "PLACE_NAME":"cGRe9e"
 }
 
 # Detection Algorithm Thresholds

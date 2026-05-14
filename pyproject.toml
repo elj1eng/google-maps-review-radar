@@ -6,7 +6,8 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "beautifulsoup4>=4.14.3",
-    "pandas>=3.0.2",
     "playwright>=1.59.0",
+    "pytelegrambotapi>=4.33.0",
+    "python-dotenv>=1.2.2",
     "requests>=2.33.1",
 ]

@@ -1,6 +1,8 @@
 # --- Project Specifics ---
-temp_profile/          # Playwright user data directory
-.env                   # Local environment variables/secrets
+# Playwright user data directory
+temp_profile/
+# Local environment variables/secrets
+.env
 
 # --- Python ---
 __pycache__/
@@ -18,7 +20,11 @@ venv/
 ENV/
 
 # --- IDEs & OS ---
-.vscode/               # Optional: Ignores personal VS Code settings
-.idea/                 # For PyCharm users
-.DS_Store              # macOS specific
-Thumbs.db              # Windows specific
+# Optional: Ignores personal VS Code settings
+.vscode/
+# For PyCharm users
+.idea/
+# macOS specific
+.DS_Store
+# Windows specific
+Thumbs.db

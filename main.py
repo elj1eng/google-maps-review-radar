@@ -53,14 +53,18 @@ def main():
         return
 
     # 5. Print Report
-    print(f"\n--- SPOT SUMMARY ---")
-    print(f"Rating: {summary['rating']} ⭐ | Total Reviews: {summary['total']}")
-    print(f"--- VERDICT (Sample Size: {report['total_scanned']}) ---")
-    print(f"1. Burner Density: {report['h_ratio']*100:.1f}% -> {'⚠️ FAKE' if report['is_fake_h'] else '✅ OK'}")
-    print(f"2. Image Density: {report['i_ratio']*100:.1f}% -> {'⚠️ FAKE' if report['is_fake_i'] else '✅ OK'}")
-
     final_status = "🚨 SUSPICIOUS" if (report['is_fake_h'] or report['is_fake_i']) else "✅ TRUSTWORTHY"
-    print(f"\nOVERALL STATUS: {final_status}")
+    reply_msg = (
+        f"{summary['name']}\n\n"
+        f"--- SPOT SUMMARY ---\n"
+        f"Rating: {summary['rating']} ⭐ | Total Reviews: {summary['total']}\n\n"
+        f"--- VERDICT (Sample Size: {report['total_scanned']}) ---\n"
+        f"1. Burner Density: {report['h_ratio']*100:.1f}% -> {'⚠️ FAKE' if report['is_fake_h'] else '✅ OK'}\n"
+        f"2. Image Density: {report['i_ratio']*100:.1f}% -> {'⚠️ FAKE' if report['is_fake_i'] else '✅ OK'}\n"
+        f"3. Real Reviewer Metric (>3 reviews): Avg {report['real_avg_rating']:.2f} ⭐ | Count {report['real_count']} - {report['real_count']/report['total_scanned']*100:.1f}%\n\n"
+        f"OVERALL STATUS: {final_status}"
+    )
+    print(f"\n{reply_msg}")
 
 if __name__ == "__main__":
     main()
