@@ -20,17 +20,23 @@ The script evaluates the sampled reviews based on three primary statistical metr
 
 ### 1. Burner Density
 Measures the proportion of "One-and-Done" accounts.
+
 $$P_{Burner} = \frac{N_{\text{Reviewers with } \le 3 \text{ reviews}}}{N_{\text{Total Scanned}}}$$
+
 *   **Threshold:** If $P_{Burner} > 40\%$, the spot is flagged for high burner density.
 
 ### 2. Image Engagement Ratio
 Legitimate customer bases typically have a baseline level of photo uploads.
+
 $$P_{Image} = \frac{N_{\text{Reviews with photos}}}{N_{\text{Total Scanned}}}$$
+
 *   **Threshold:** If $P_{Image} < 10\%$, the spot is flagged for low organic engagement.
 
 ### 3. Real Reviewer Metric
 Calculates the average rating by excluding suspicious, low-history accounts.
+
 $$Avg_{\text{Real}} = \frac{\sum \text{Ratings of Reviewers with } > 3 \text{ reviews}}{N_{\text{Reviewers with } > 3 \text{ reviews}}}$$
+
 *   **Logic:** Isolates reviewers who have submitted $> 3$ reviews across Google Maps and recalculates the average star rating and their percentage of the total scanned.
 
 ---
